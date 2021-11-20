@@ -1,0 +1,22 @@
+.form-section div {
+    margin-bottom: 10px;
+}
+
+.form-section label {
+    margin-right: 10px;
+}
+
+table {
+    width: 67%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: left;
+}
+
+table tr td {
+    border: 1px solid black
+}
+
+.text-danger {
+    color: red;
+}

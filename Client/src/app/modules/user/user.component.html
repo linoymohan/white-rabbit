@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>User</h3>
+        </div>
+        <div class="col-md-12">
+            <form [formGroup]="userForm">
+                <div class="col-md-5 form-section">
+                    <div>
+                        <label>First Name</label>
+                        <input placeholder="First Name" formControlName="firstName" type="text" class="form-control">
+                        <small *ngIf="userForm.get('firstName').errors?.required" class="text-danger">First
+                            Name is required</small>
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input placeholder="last Name" formControlName="lastName" type="text" class="form-control">
+                        <small *ngIf="userForm.get('lastName').errors?.required" class="text-danger">Last
+                            Name is required</small>
+                    </div>
+                    <div>
+                        <label>Introduction</label>
+                        <input placeholder="Introduction" formControlName="intro" type="text" class="form-control">
+                        <small *ngIf="userForm.get('intro').errors?.required" class="text-danger">Introduction is required</small>
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input placeholder="Email" type="text" formControlName="email" class="form-control">
+                        <small *ngIf="userForm.get('email').errors?.required" class="text-danger">email is required</small>
+                    </div>
+                    <div>
+                        <label>Phone</label>
+                        <input placeholder="Phone" type="text" formControlName="phone" class="form-control">
+                        <small *ngIf="userForm.get('phone').errors?.required" class="text-danger">phone is required</small>
+
+                    </div>
+                    <div>
+                        <label> Experience</label>
+                        <input placeholder=" Experience" type="text" formControlName="experience" class="form-control">
+                        <small *ngIf="userForm.get('experience').errors?.required" class="text-danger">experience is required</small>
+
+                    </div>
+                    <div>
+                        <label> Achievements</label>
+                        <textarea placeholder="Achievements" formControlName="achievements" class="form-control"></textarea>
+                        <small *ngIf="userForm.get('achievements').errors?.required" class="text-danger">achievements is required</small>
+
+                    </div>
+
+                    <div>
+                        <button class="bluebutton" (click)="onSubmit()">Save</button>
+                        <span class="text-danger" *ngIf="errMsg">{{errMsg}}</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div *ngIf="userList.length>0">
+        <div class="col-md-12">
+            <h3>User List</h3>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td>{{user.firstName+' '+user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td> <a (click)="onDetails(user)">click</a> </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
